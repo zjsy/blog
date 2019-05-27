@@ -99,8 +99,8 @@ creative_commons:
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
-  enable: false
-  permalink: https://github.com/yourname
+  enable: true
+  permalink: https://github.com/sydy
   title: Follow me on GitHub
 
 
@@ -197,8 +197,8 @@ site_state: true
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-#GitHub: https://github.com/yourname || github
-#E-Mail: mailto:yourname@gmail.com || envelope
+  GitHub: https://github.com/yourname || github
+  E-Mail: mailto:shenyang19920901@gmail.com || envelope
 #Weibo: https://weibo.com/yourname || weibo
 #Google: https://plus.google.com/yourname || google
 #Twitter: https://twitter.com/yourname || twitter
@@ -311,8 +311,8 @@ excerpt_description: true
 # Automatically Excerpt (Not recommend).
 # Use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: false
-  length: 150
+  enable: true
+  length: 400
 
 # Read more button
 # If true, the read more button would be displayed in excerpt section.
