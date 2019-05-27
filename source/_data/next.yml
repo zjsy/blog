@@ -162,8 +162,8 @@ menu:
   categories: /categories/ || th
   tags: /tags/ || tags
 #  schedule: /schedule/ || calendar
-#  sitemap: /sitemap.xml || sitemap
   about: /about/ || user
+  sitemap: /baidusitemap.xml || sitemap
 #  commonweal: /404/ || heartbeat
 
 # Enable / Disable menu icons / item badges.
