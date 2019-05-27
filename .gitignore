@@ -5,6 +5,7 @@ db.json
 node_modules/
 public/
 .deploy*/
+themes/next
 
 # Editor directories and files
 .idea
@@ -12,3 +13,4 @@ public/
 *.ntvs*
 *.njsproj
 *.sln
+

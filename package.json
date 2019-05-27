@@ -1,13 +1,17 @@
 {
-  "name": "hexo-site",
+  "name": "Young",
   "version": "0.0.0",
   "private": true,
   "hexo": {
     "version": "3.8.0"
   },
+  "scripts": {
+    "get-next-theme": "git clone https://github.com/theme-next/hexo-theme-next themes/next"
+  },
   "dependencies": {
     "hexo": "^3.8.0",
     "hexo-auto-category": "^0.2.0",
+    "hexo-deployer-sftp": "^0.1.0",
     "hexo-generator-archive": "^0.1.5",
     "hexo-generator-baidu-sitemap": "^0.1.6",
     "hexo-generator-category": "^0.1.3",

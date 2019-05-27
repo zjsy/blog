@@ -79,7 +79,15 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: sftp
+  host: 106.14.116.172
+  user: hexo
+  pass: sydy1314
+  remotePath: /www/wwwroot/blog.sydy1314.com
+  port: 22630
+  #privateKey: [path/to/privateKey]
+  #passphrase: [passphrase]
+  #agent: [path/to/agent/socket]
 
 # Generate categories from directory-tree
 # Dependencies: https://github.com/xu-song/hexo-auto-category
