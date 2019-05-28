@@ -6,7 +6,7 @@
     "version": "3.8.0"
   },
   "scripts": {
-    "get-next-theme": "git clone https://github.com/theme-next/hexo-theme-next themes/next"
+    "get-next-theme": "git clone https://github.com/theme-next/hexo-theme-next themes/next && exit"
   },
   "dependencies": {
     "hexo": "^3.8.0",
