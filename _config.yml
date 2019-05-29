@@ -100,7 +100,7 @@ auto_category:
 feed:
   type: atom
   path: atom.xml
-  limit: 20
+  limit: 0 #0就是代表所有
   hub:
   content:
   content_limit: 140
