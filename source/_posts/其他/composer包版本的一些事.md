@@ -131,10 +131,23 @@ composer require topthink/think-queue 2.0
 ### 补充
 
 1. 在composer.json 设置 "minimum-stability": "dev",可以安装开发版本,和稳定性约束设置为-dev效果差不多
-2. .composer update --ignore-platform-reqs 可忽略版本限制,一般不会使用,因为可能造成不可预期的问题
+
+2. 关于 --ignore-platform-reqs 这个设置,也是无意中看到,很多文章 如 [Composer设置忽略版本匹配](https://www.jianshu.com/p/eeac20c1f3fa) 让我误以为可以在安装包的时候忽略包版本之间的依赖,然而并不是,而且文章中说的用法在最新版本的composer也有一些出入, 
+
+   此命令可忽略**php版本限制**,但是无法忽略包之间依赖关系,**推荐不要使用,因为可能造成不可预期的问题**
+
+   正确的用法是 composer update||require||install package/packagename --ignore-platform-reqs
+
+   并没有找到能忽略包之间依赖关系而 强制安装的方法
+
+3. composeer require xxx/xxx version 也可以这样写 composer require xxx/xxx:version
+
+4. composer require topthink/think-queue 2.0.0||2.0.1 这样会安装2.0.0,而没有去安装2.0.1,所以说命令安装没法控制或的关系,但是在composer.json文件中,设置 ``"topthink/think-queue": "2.0.2||2.0.3"`` 会被composer识别,而安装高的版本
+
+5. 试了一下,composer require package/packagename >=2.0.0 这种也是可以被识别的,但是最好不要用吧,还是好好的使用我们的~或者^ 来控制一个包版本,比较符合包版本的规范
 
 ### 参考
 
-> [官方文档]: https://getcomposer.org/doc/
-> [Composer进阶使用]: https://segmentfault.com/a/1190000005898222
+> [官方文档](https://getcomposer.org/doc/)
+> [Composer进阶使用](https://segmentfault.com/a/1190000005898222)
 
