@@ -130,11 +130,29 @@ $extra = $event->getComposer()->getPackage()->getExtra();
 
 为什么composer本身就有一些 触发器事件,比如安装完之后,update之后之类的,为什么没有在对应的think-queue这个包里使用这些事件,而是要自己去重新根据extra里面的内容自己去扩展呢,
 
-1. 有个可能是自己的包中实现,在我安装那么包的时候并不会触发,
+1. 有个可能是自己的包中实现,在我安装那个包的时候并不会触发,
 
 2. 为了统一写法,把这些操作全部由安装器去完成,而不是各自为营.
 
 大家有兴趣可以自己写一个包,并在scripts里写上一些触发命令,去测试一下,如果有相应的结论,可以在下面评论告知,或者私信我,进行补充
+
+> 解答:关于上面的问题,自己下来尝试了一下,在包中写的scripts,并不会在项目安装的时候被触发,这里也找到了官方的说明 [官方文档scripts说明](<https://getcomposer.org/doc/articles/scripts.md>),
+>
+> ```
+> Note: Only scripts defined in the root package's composer.json are executed. If a dependency of the root package specifies its own scripts, Composer does not execute those additional scripts.
+> ```
+>
+> 所以要想在安装某个包后执行一些操作,那么就可以仿照thinkphp的安装器think-installer做一些自己想做的事情吧
+
+
+
+-- 6月3日补充
+
+这里发现一个新的知识点, [composer 的自定义安装器](<https://getcomposer.org/doc/articles/custom-installers.md>) 
+
+think-installer 就是一个标准的 自定义安装器.在这个包中的ThinkExtend.php文件可以看到,当包type为think-extend才会触发一些事件,,复制config也是在这个里面完成的,所以要想自定义thinkphp的compoerr包,不妨先看看这个包里面有哪些规则,然后按照这个规则来发布一些包.发布一个think-extend可以参考我的另一篇文章
+
+[发布自定义composer包](/2019/06/03/其他/发布自定义composer包/)
 
 ---
 
