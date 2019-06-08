@@ -1,12 +1,13 @@
 ---
 title: thinkphp5使用笔记
-date: 2019-06-03 03:23:57
 categories:
   - php
 tags:
   - thinkphp
   - note
 comments: true
+abbrlink: 22516
+date: 2019-06-03 03:23:57
 ---
 
 ## tp5 开启dubug时手写下载的会无法读取文件大小
