@@ -1,5 +1,5 @@
 ---
-title: composer 包版本的一些事
+title: npm私有仓库搭建
 categories:
   - 其他
 tags:
