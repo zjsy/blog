@@ -1,10 +1,12 @@
 ---
 title: https网站引入http资源
-date: 2019-06-07 00:36:21
 tags:
   - https
   - url解析
 comments: true
+categories:
+  - 其他
+date: 2019-06-07 00:36:21
 ---
 
 ## 应用场景

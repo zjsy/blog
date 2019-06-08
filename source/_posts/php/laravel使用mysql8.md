@@ -1,10 +1,12 @@
 ---
 title: laravel使用mysql8
-date: 2019-06-06 23:36:21
 tags:
   - laravel
   - mysql
 comments: true
+categories:
+  - php
+date: 2019-06-06 23:36:21
 ---
 
 ## 背景
