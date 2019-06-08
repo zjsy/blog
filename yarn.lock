@@ -1010,6 +1010,14 @@ has-values@^1.0.0:
     is-number "^3.0.0"
     kind-of "^4.0.0"
 
+hexo-abbrlink@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/hexo-abbrlink/download/hexo-abbrlink-2.0.5.tgz#d7aba4daed3b9697bb05d1d2302e64b008ff3a75"
+  integrity sha1-16uk2u07lpe7BdHSMC5ksAj/OnU=
+  dependencies:
+    hexo-front-matter "^0.2.3"
+    hexo-fs "^0.2.2"
+
 hexo-auto-category@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npm.taobao.org/hexo-auto-category/download/hexo-auto-category-0.2.0.tgz#058f73202ad36b85d03335a04fea61349793a084"
