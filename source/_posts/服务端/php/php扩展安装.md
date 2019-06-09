@@ -1,6 +1,7 @@
 ---
 title: PHP 扩展安装
 categories:
+  - 服务端
   - php
 tags:
   - php扩展

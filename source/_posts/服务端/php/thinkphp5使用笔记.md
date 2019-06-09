@@ -1,6 +1,7 @@
 ---
 title: thinkphp5使用笔记
 categories:
+  - 服务端
   - php
 tags:
   - thinkphp

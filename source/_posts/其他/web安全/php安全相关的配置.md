@@ -1,6 +1,7 @@
 ---
 title: PHP 安全相关的配置
 categories:
+  - 其他
   - web安全
 tags:
   - php配置

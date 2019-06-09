@@ -1,6 +1,7 @@
 ---
 title: thinkphp的队列
 categories:
+  - 服务端
   - php
 tags:
   - thinkphp
@@ -169,7 +170,7 @@ think-installer 就是一个标准的 自定义安装器.在这个包中的Think
 files = /etc/supervisor/.ini
 ```
 
- 
+ >6月9日在整理supervisor笔记的时候,重新测试了一下是可以的,可能是当初没有取消注释掉 `[include]`
 
 ### 补充
 
