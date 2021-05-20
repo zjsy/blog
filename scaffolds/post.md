@@ -1,6 +1,6 @@
 ---
 title: {{ title }}
-categories:
+categories: 
 tags:
 comments: true
 abbrlink:

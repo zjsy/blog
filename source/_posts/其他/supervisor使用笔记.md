@@ -1,11 +1,11 @@
 ---
 title: supervisor使用笔记
 comments: true
-categories:
-  - 其他
 tags:
   - 进程管理
 abbrlink: 13046
+categories:
+  - 其他
 date: 2019-06-09 16:26:57
 ---
 
@@ -39,13 +39,11 @@ superviosr是一个Linux/Unix系统上的进程监控工具，他/她upervisor�
 
    supervisor是个开源软件，牛逼点的，可以直接去改软件。不过咱们大多数人还是老老实实研究supervisot提供的接口吧，supervisor主要提供了两个可扩展的功能。一个是event机制，这个就是楼主这两天干的活要用到的东西。再一个是xml_rpc,supervisor的web管理端和远程调用的时候，就要用到它了。
 
-6.  **权限**
+6. **权限**
 
     大伙都知道linux的进程，特别是侦听在1024端口之下的进程，一般用户大多数情况下，是不能对其进行控制的。想要控制的话，必须要有root权限。而supervisor提供了一个功能，可以为supervisord或者每个子进程,设置一个非root的user，这个user就可以管理它对应的进程了。
 
 7. **兼容性，稳定性**
-
- 
 
 ### 组成部分
 
@@ -56,8 +54,6 @@ superviosr是一个Linux/Unix系统上的进程监控工具，他/她upervisor�
 ·         Web Server：提供与supervisorctl功能相当的WEB操作界面
 
 ·         XML-RPC Interface：XML-RPC接口
-
- 
 
 ## 安装
 
@@ -324,11 +320,11 @@ superviso 25438 root    4u  IPv4 1487990      0t0  TCP *:scp-config (LISTEN)
 
 ### 项目配置及运行
 
-上面我们已经把 supervisrod 运行起来了，现在可以添加我们要管理的进程的配置文件。可以把所有配置项都写到 supervisord.conf 文件里，但并不推荐这样做，而是通过 include 的方式把不同的程序（组）写到不同的配置文件里，对，就是默认配置中的最后的那个include。下面来对项目进行简单的配置。 
+上面我们已经把 supervisrod 运行起来了，现在可以添加我们要管理的进程的配置文件。可以把所有配置项都写到 supervisord.conf 文件里，但并不推荐这样做，而是通过 include 的方式把不同的程序（组）写到不同的配置文件里，对，就是默认配置中的最后的那个include。下面来对项目进行简单的配置。
 
-假设我们把项目配置文件放在这个目录中:/etc/supervisor/ 
+假设我们把项目配置文件放在这个目录中:/etc/supervisor/
 
-则我们需要修改/etc/supervisord.conf 中的include为： 
+则我们需要修改/etc/supervisord.conf 中的include为：
 
 ```ini
 [include] 
@@ -434,12 +430,12 @@ stop update_ip
 其实，也可以不使用supervisorctl shell界面，而在bash终端运行：
 
 ```
-$ supervisorctl status
-$ supervisorctl stop usercenter
-$ supervisorctl start usercenter
-$ supervisorctl restart usercenter
-$ supervisorctl reread
-$ supervisorctl update 
+supervisorctl status
+supervisorctl stop usercenter
+supervisorctl start usercenter
+supervisorctl restart usercenter
+supervisorctl reread
+supervisorctl update 
 ```
 
 ### 多个进程管理
@@ -463,7 +459,7 @@ tornado_server.log
 loglevel=info
 ```
 
-上面这个例子会启动两个进程，process_name 分别为 foo:foo_01 和 foo:foo_02。通过这样一种方式，就可以用一个 [program:x] 配置项，来启动一组非常类似的进程。 
+上面这个例子会启动两个进程，process_name 分别为 foo:foo_01 和 foo:foo_02。通过这样一种方式，就可以用一个 [program:x] 配置项，来启动一组非常类似的进程。
 
 更详细配置，点击[这里](http://supervisord.org/configuration.html#program-x-section-settings)
 
@@ -478,8 +474,6 @@ priority=999                  ; the relative start priority (default 999)
 当添加了上述配置后，progname1 和 progname2 的进程名就会变成 thegroupname:progname1 和 thegroupname:progname2 以后就要用这个名字来管理进程了，而不是之前的 progname1。
 以后执行 supervisorctl stop thegroupname: 就能同时结束 progname1 和 progname2，执行 supervisorctl stop thegroupname:progname1 就能结束 progname1。
 
-
-
 ## 结尾
 
 实际上，默认情况下，supervisored 也是一个进程，最理想的的情况应该是将其安装为系统服务，安装方法可以参考[这里](http://serverfault.com/questions/96499/how-to-automatically-start-supervisord-on-linux-ubuntu),安装脚本参考[这里](https://github.com/Supervisor/initscripts)
@@ -491,7 +485,7 @@ priority=999                  ; the relative start priority (default 999)
 新建开机启动服务
 
 ```bash
-$ vim  /lib/systemd/system/supervisord.service
+vim  /lib/systemd/system/supervisord.service
 ```
 
 在supervisord.service中添加以下内容：
@@ -526,7 +520,7 @@ $ vim /etc/supervisrod.conf
 将服务脚本添加到systemctl自启动服务：
 
 ```bash
-$ systemctl enable supervisord.service
+systemctl enable supervisord.service
 ```
 
 重启系统测试开机启动。
@@ -536,8 +530,6 @@ $ systemctl enable supervisord.service
 不重启测试
  systemctl enable supervisord
  验证一下是否为开机启动：systemctl is-enabled supervisord
-
-
 
 2. 配置 /etc/rc.local
 
@@ -636,14 +628,3 @@ output:
 >[进程管理利器-supervisor部署记录](https://www.cnblogs.com/kevingrace/p/7525200.html)
 >
 >[Supervisor安装与配置（Linux/Unix进程管理工具）](https://blog.csdn.net/xyang81/article/details/51555473)
-
-
-
-
-
- 
-
- 
-
-
-

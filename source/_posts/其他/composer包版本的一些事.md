@@ -1,11 +1,11 @@
 ---
 title: composer 包版本的一些事
-categories:
-  - 其他
 tags:
   - composer
 comments: true
 abbrlink: 56353
+categories:
+  - 其他
 date: 2019-05-31 03:19:12
 ---
 
@@ -41,7 +41,7 @@ composer require topthink/think-queue 2.0
 
 通过使用比较运算符，您可以指定有效版本的范围。有效的运营商`>`，`>=`，`<`，`<=`，`!=`。
 
-您可以定义多个范围。由space（` `）或逗号（`,`）分隔的范围将被视为**逻辑AND**。double pipe（`||`）将被视为**逻辑OR**。AND的优先级高于OR。
+您可以定义多个范围。由space（``）或逗号（`,`）分隔的范围将被视为**逻辑AND**。double pipe（`||`）将被视为**逻辑OR**。AND的优先级高于OR。
 
 > **注意：**使用无界范围时要小心，因为您可能会意外地安装破坏向后兼容性的版本。考虑使用[插入符号](https://getcomposer.org/doc/articles/versions.md#caret-version-range-)操作符代替安全性。
 
@@ -62,7 +62,6 @@ composer require topthink/think-queue 2.0
 您可以使用`*`通配符指定模式。`1.0.*`相当于 `>=1.0 <1.1`。
 
 例： `1.0.*`
-
 
 #### Tilde版本范围（〜）
 
@@ -127,13 +126,11 @@ composer require topthink/think-queue 2.0
 }
 ```
 
-
-
 ### 补充
 
 1. 在composer.json 设置 "minimum-stability": "dev",可以安装开发版本,和稳定性约束设置为-dev效果差不多
 
-2. 关于 --ignore-platform-reqs 这个设置,也是无意中看到,很多文章 如 [Composer设置忽略版本匹配](https://www.jianshu.com/p/eeac20c1f3fa) 让我误以为可以在安装包的时候忽略包版本之间的依赖,然而并不是,而且文章中说的用法在最新版本的composer也有一些出入, 
+2. 关于 --ignore-platform-reqs 这个设置,也是无意中看到,很多文章 如 [Composer设置忽略版本匹配](https://www.jianshu.com/p/eeac20c1f3fa) 让我误以为可以在安装包的时候忽略包版本之间的依赖,然而并不是,而且文章中说的用法在最新版本的composer也有一些出入,
 
    此命令可忽略**php版本限制**,但是无法忽略包之间依赖关系,**推荐不要使用,因为可能造成不可预期的问题**
 
@@ -151,4 +148,3 @@ composer require topthink/think-queue 2.0
 
 > [官方文档](https://getcomposer.org/doc/)
 > [Composer进阶使用](https://segmentfault.com/a/1190000005898222)
-

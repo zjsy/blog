@@ -1,11 +1,11 @@
 ---
 title: 通过host加速github
-categories:
-  - 其他
 tags:
   - github
 comments: true
 abbrlink: 34192
+categories:
+  - 其他
 date: 2019-05-28 22:43:12
 ---
 
@@ -22,8 +22,6 @@ date: 2019-05-28 22:43:12
 
 ***
 
-
-
 ### 实施
 
 1. 在网站  <https://www.ipaddress.com/> 分别搜索如下的ip,得到对应的ip地址
@@ -35,8 +33,8 @@ github.com
 
 2. 配置host文件
 
-- Windows上的hosts文件路径在`C:\Windows\System32\drivers\etc\hosts` 
-- Linux的hosts文件路径在：`sudo vim /etc/hosts` 
+- Windows上的hosts文件路径在`C:\Windows\System32\drivers\etc\hosts`
+- Linux的hosts文件路径在：`sudo vim /etc/hosts`
 
 在hosts文件末尾添加两行(对应上面查到的ip)
 
@@ -47,14 +45,12 @@ github.com
 
 3. 保存更新DNS
 
-- Winodws系统的做法：打开CMD，输入`ipconfig /flushdns` 
-- Linux的做法：在终端输入`sudo /etc/init.d/networking restart` 
+- Winodws系统的做法：打开CMD，输入`ipconfig /flushdns`
+- Linux的做法：在终端输入`sudo /etc/init.d/networking restart`
 
 到此为止，试试`git clone`这条命令速度如何？
 
 ****
-
-
 
 ### 补充
 
@@ -64,9 +60,6 @@ github.com
 
 ***
 
-
-
 ### 参考
 
 [git clone速度太慢的解决办法](https://www.jianshu.com/p/3f6477049ece)
-

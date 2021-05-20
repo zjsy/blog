@@ -4,9 +4,9 @@ tags:
   - https
   - url解析
 comments: true
+abbrlink: 18612
 categories:
   - 其他
-abbrlink: 18612
 date: 2019-06-07 00:36:21
 ---
 
@@ -21,8 +21,6 @@ date: 2019-06-07 00:36:21
 2. 如果在一个 https 页面里动态的引入 http 资源，比如引入一个 js 文件，会被直接 block 掉的。
 3. Chrome v21 之后，在 SSL 加密页面 embed 非 SSL 的 Flash 资源也会被默默的屏蔽掉，只留下一句 console 报告。
 4. 当页面是https的时候,不允许使用不安全的连接.使用websocket,ws协议会报错,必须要wss才行.
-
-
 
 ## 解决方式
 
@@ -54,8 +52,6 @@ date: 2019-06-07 00:36:21
 
 ---
 
-
-
 ### 使用 iframe
 
 使用 iframe 的方式引入 http 资源，比如在 https 里面播放优酷的视频，我们可以先在一个 http 的页面里播放优酷视频，然后将这个页面嵌入到 https 页面里就可以了。
@@ -71,8 +67,6 @@ date: 2019-06-07 00:36:21
 ```
 
 > 附注：`<link>`或`@import`引入样式表时使用相对协议，IE7、IE8 会下载文件两次。
-
-
 
 ## 补充
 
@@ -106,7 +100,6 @@ date: 2019-06-07 00:36:21
 
 ## 参考
 
-> [ https 页面中引入 http 资源的解决方式](https://segmentfault.com/a/1190000004200361?utm_source=Weibo)
+> [https 页面中引入 http 资源的解决方式](https://segmentfault.com/a/1190000004200361?utm_source=Weibo)
 >
 > [浏览器相对url的解析](https://www.jianshu.com/p/35b5d8634851)
-

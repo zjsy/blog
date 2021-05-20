@@ -15,13 +15,12 @@ date: 2019-06-06 23:36:21
 
 在去年做项目的时候使用了mysql8,但是php却使用了5.6,框架却使用了5.1,这里遇到几个问题,再此记录一下.
 
-
-
 ## 解决
 
 在查找资料的时候,看到一个文章里提到了两个问题,一个是就是数据库连接的问题
 
-### Authentication type：
+### Authentication type
+
 mysql8  用户的 `Authentication type` 默认为 `caching_sha2_password`，导致数据库连接错误，抛出如下异常：
 
 ```
@@ -43,11 +42,10 @@ Illuminate\Database\QueryException : SQLSTATE[HY000] [2054] The server requested
 
 如果没有改还可能导致navicat(可能是我的版本较低,我的还是11.0.17)无法连接的状况
 
-我这里使用laragon已经改好了,所以没有遇到 
-
-
+我这里使用laragon已经改好了,所以没有遇到
 
 ### 删除了 NO_AUTO_CREATE_USER 模式
+
  在 5.7.*的日志中提到已废除该模式，在8.0.11中删除了，迁移时会抛出如下异常：
  Illuminate\Database\QueryException : SQLSTATE[42000]: Syntax error or access violation: 1231 Variable 'sql_mode' can't be set to the value of 'NO_AUTO_CREATE_USER'
 
@@ -67,7 +65,7 @@ Illuminate\Database\QueryException : SQLSTATE[HY000] [2054] The server requested
 
 具体设置详见
 
-https://blog.csdn.net/itmr_liu/article/details/80851266
+<https://blog.csdn.net/itmr_liu/article/details/80851266>
 
 ```ini
 [client]
@@ -86,4 +84,3 @@ init_connect='SET NAMES utf8mb4'
 ## 参考
 
 > [遇到 MySQL 8.0.11 的一些坑](https://learnku.com/articles/10736/some-craters-in-mysql-8011)
-

@@ -1,11 +1,11 @@
 ---
 title: 发布自定义composer包
-categories:
-  - 其他
 tags:
   - composer
 comments: true
 abbrlink: 17275
+categories:
+  - 其他
 date: 2019-06-03 00:19:12
 ---
 
@@ -65,7 +65,7 @@ date: 2019-06-03 00:19:12
 
    *因为这里是一个tp5的一个扩展所以这边加入了一些依赖,并且配置了相应的extra,think-config这个规则会复制这个包的配置到项目的配置目录中(实际上是只能复制默认的配置目录中,如果改了config目录没法去识别),这部分可以去查看think-installer里面配置的规则就是了,think-installer 是一个标准的安装器,这部分可以参考*
 
-   [composer 的自定义安装器](<https://getcomposer.org/doc/articles/custom-installers.md>) 
+   [composer 的自定义安装器](<https://getcomposer.org/doc/articles/custom-installers.md>)
 
    然后添加一些必要的配置,最终配置如下
 
@@ -109,8 +109,6 @@ date: 2019-06-03 00:19:12
 
    推荐配置psr-4和files,我的经验是只需要明白这两个,就能搞定所有问题了
 
-   
-
 2. 建立版本库,编写相应的源码,大概如下
 
    ```
@@ -147,13 +145,9 @@ date: 2019-06-03 00:19:12
 
    P.s  windows 下 tree 命令只会展示文件夹, 要让展示文件 需要 /F参数
 
-   
-
 3. 提交代码到github,第一次需要在官网手动验证仓库地址,
 
    ![asd](http://blog.oss.sydy1314.com/2019/0603/%E5%8F%91%E5%B8%83%E8%87%AA%E5%AE%9A%E4%B9%89composer%E5%8C%85-1.jpg)
-
-   
 
    傻瓜操作完之后便会跳转到已经创建的包的主页
 
@@ -180,8 +174,6 @@ date: 2019-06-03 00:19:12
 
    我的经验是,本地开发建立对应的dev分支(自己的项目一般都是一个dev分支就够了,当然也可以协作开发,),但是不提交至远程,只提交master分支,并且是打完版本tag之后提交,多人开发似乎就无法避免了
 
-   
-
    这边发现后续的提交了之后会自动的触发钩子,竟然什么都不需要配置,特意在github看了一下这个项目的webHook,发现竟然自动配置了一个webHook,
 
    这边又看了一下去年的笔记
@@ -191,8 +183,6 @@ date: 2019-06-03 00:19:12
    ![img](http://blog.oss.sydy1314.com/2019/0603/%E5%8F%91%E5%B8%83%E8%87%AA%E5%AE%9A%E4%B9%89composer%E5%8C%85-2.jpg)
 
    然后一步一步去跟着教程,直接就可以配置好了,自动更新的hook了.
-
-   
 
 4. 至此,提交自定义composer包就完成了,再次安装的时候就能正常安装了
 
@@ -211,8 +201,6 @@ Writing lock file
 Generating autoload files
 
 ```
-
-
 
 ### 补充
 
@@ -240,7 +228,7 @@ Options:
 ...
 ~~~
 
-这里可以看到 -g 全局, -l 列出配置, -e打开 配置文件,composer的配置文件一般在 
+这里可以看到 -g 全局, -l 列出配置, -e打开 配置文件,composer的配置文件一般在
 
 用户目录/AppData/Roaming/Composer/config.json ,可以直接便捷改变全局配置
 
@@ -248,9 +236,6 @@ Options:
 
 因为国内几乎无法直接从国外的仓库中下载,所以一般都是通过国内的镜像去下载的,所以发布了包之后有一定的延迟,查看是否是自己发布的版本,可以查看下载下来的包的git SHA码是否和最新的一致
 
-
-
 ### 参考
 
 > [官方文档](https://getcomposer.org/doc/)
-

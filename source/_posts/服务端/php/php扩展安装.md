@@ -1,20 +1,18 @@
 ---
 title: PHP 扩展安装
-categories:
-  - 服务端
-  - php
 tags:
   - php扩展
 comments: true
 abbrlink: 52373
+categories:
+  - 服务端
+  - php
 date: 2019-06-05 01:23:57
 ---
 
 # 背景
 
 在前年学习workman的时候,看到php扩展的安装方式,竟然有那么多,感觉也算是补充了一点这方面的知识.平时用windows或者宝塔集成环境太多了,导致几乎从来没有真正在linux下安装一个php扩展,这边摘抄workman文章安装扩展一节,并手打了一次安装一个扩展的经历
-
-
 
 ## workman笔记摘抄
 
@@ -225,17 +223,15 @@ phpize配置进行手动安装。在官方手册中也有提及
 
 <http://php.net/manual/zh/install.pecl.phpize.php>
 
- 
-
-如果要安装的扩展在php源码ext目录中没有，那么这个扩展需要到http://pecl.php.net 搜索下载
+如果要安装的扩展在php源码ext目录中没有，那么这个扩展需要到<http://pecl.php.net> 搜索下载
 
 以安装libevent扩展为例（假设系统安装了libevent-dev库）
 
 1、下载libevent扩展文件压缩包（在当前系统哪个目录下载随意）
 
-~# wget http://pecl.php.net/get/libevent-0.1.0.tgz
+~# wget <http://pecl.php.net/get/libevent-0.1.0.tgz>
 
---2015-05-26 21:43:40--  http://pecl.php.net/get/libevent-0.1.0.tgz
+--2015-05-26 21:43:40--  <http://pecl.php.net/get/libevent-0.1.0.tgz>
 
 Resolving pecl.php.net... 104.236.228.160
 
@@ -247,11 +243,7 @@ Length: 9806 (9.6K) [application/octet-stream]
 
 Saving to: “libevent-0.1.0.tgz”
 
- 
-
 100%[=======================================================>] 9,806       41.4K/s   in 0.2s
-
- 
 
 2、解压扩展文件压缩包
 
@@ -315,12 +307,6 @@ Installing shared extensions:     /usr/lib/php5/20090626/
 
 通过运行 php --ini查找php.ini文件位置，然后在文件中添加extension=libevent.so
 
- 
-
- 
-
- 
-
 ## 一次安装php扩展的经历
 
 ### Scene
@@ -347,8 +333,6 @@ $ make
 
 大概就是如此 ,宝塔的包会下载解压到/www/server/php/56/src/ext 这个目录,
 
- 
-
 PS 宝塔安装包的方式都不太一样,安装swoole就没有问题,而且也没有把相应的包源码复制到上面说的上面说的目录
 
 [root@izuf68edoi0hcmzlg0s5nrz ext]# ls
@@ -365,13 +349,9 @@ Cannot find config.m4.
 
 Make sure that you run '/www/server/php/56/bin/phpize' in the top level source directory of the module
 
- 
-
 fileinfo.sh: line 65: ./configure: No such file or directory
 
 make: *** No targets specified and no makefile found.  Stop.
-
- 
 
 把ext-56文件删了之后,再次执行没有上面的错误
 
@@ -381,15 +361,13 @@ Cannot find config.m4.
 
 Make sure that you run '/www/server/php/56/bin/phpize' in the top level source directory of the module
 
- 
-
 根据上面的日志可以猜测
 
 宝塔先把源码复制到 /www/server/php/56/src/ext-56 这个目录,然后想打开扩展源码的时候确是去执行了ext/fileinfo 文件夹,所以就报错了
 
 于是就复制了一份fileinfo到ext文件夹下,再次执行,发现还是报错了,这次报的是编译错误,而且一大堆,夹杂了很多宝塔自己的日志,看也看不明白,那就没办法了
 
-#### 没办法,只能手动安装了,使用pecl 
+#### 没办法,只能手动安装了,使用pecl
 
 \1.     搜索一下包
 
@@ -425,11 +403,7 @@ Cannot find config.m4.
 
 Make sure that you run '/www/server/php/56/bin/phpize' in the top level source directory of the module
 
- 
-
 ERROR: `phpize' failed
-
- 
 
 报错是 请确保在模块的顶级目录运行那个phpize ,这里就很奇怪,理论上,pecl安装的时候,会自动的解决一些路径的问题 ,最想不通的是之前安装mongodb扩展的时候一点问题也没有
 
@@ -449,13 +423,11 @@ ERROR: `phpize' failed
 
 channel.xml  Fileinfo-1.0.4.tgz  mongodb-1.5.1.tgz
 
- 
-
 #### 这个问题先放到一边,还是来自己手动用phpize编译把
 
-\1.     解压à关于解压的[推荐文章 ](https://blog.csdn.net/example440982/article/details/51712973)  里面的总结挺好
+\1.     解压à关于解压的[推荐文章](https://blog.csdn.net/example440982/article/details/51712973)  里面的总结挺好
 
-[root@izuf68edoi0hcmzlg0s5nrz download]# tar -xzf Fileinfo-1.0.4.tgz 
+[root@izuf68edoi0hcmzlg0s5nrz download]# tar -xzf Fileinfo-1.0.4.tgz
 
 [root@izuf68edoi0hcmzlg0s5nrz download]# ls
 
@@ -533,13 +505,9 @@ file-libs.x86_64 : Libraries for applications using libmagic
 
 python-magic.noarch : Python bindings for the libmagic API
 
- 
-
   Name and summary matches only, use "search all" for everything.
 
- 
-
-这里找到了四个包 
+这里找到了四个包
 
 第一个和第四个都是别的语言,没考录
 
@@ -555,37 +523,24 @@ python-magic.noarch : Python bindings for the libmagic API
 
 到此,还是报了一堆错误…天啊,真是悲剧
 
- 
-
 最后去尝试了一下,宝塔下载的php 扩展包,报的错不一样,
-
- 
 
 make: *** [libmagic/apprentice.lo] Error 1
 
-https://blog.csdn.net/phf0313/article/details/40618491
-
- 
+<https://blog.csdn.net/phf0313/article/details/40618491>
 
 可以试试去别的机子编译好,再放过去
-
- 
 
 当配置PHP时出现  make: *** [ext/fileinfo/libmagic/apprentice.lo] Error 1 时
 
 是因为服务器内存不足1G。
 
-只需要在配置命令中添加 --disable-fileinfo即可 
+只需要在配置命令中添加 --disable-fileinfo即可
 
 但是我试了还是没有用
 
- 
-
 还有个问题是 linux是不是也只需要放一个 配置的文件 比如 放一个 .so 的文件然后放入扩展目录,然后配置一下,就可以用了???
-
-
 
 # 参考
 
 [workman关于php扩展安装](http://doc.workerman.net/315304)
-

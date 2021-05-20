@@ -1,13 +1,13 @@
 ---
 title: thinkphp的队列
-categories:
-  - 服务端
-  - php
 tags:
   - thinkphp
   - queue
 comments: true
 abbrlink: 60687
+categories:
+  - 服务端
+  - php
 date: 2019-05-31 03:33:12
 ---
 
@@ -20,8 +20,6 @@ date: 2019-05-31 03:33:12
 在阅读源码的时候发现其实在对应的扩展目录的redme文件也有详细的说明,并且有对应的生成mysql驱动所需要初始化的数据库表
 
 ***
-
-
 
 ### 一些思考
 
@@ -146,19 +144,15 @@ $extra = $event->getComposer()->getPackage()->getExtra();
 >
 > 所以要想在安装某个包后执行一些操作,那么就可以仿照thinkphp的安装器think-installer做一些自己想做的事情吧
 
-
-
 -- 6月3日补充
 
-这里发现一个新的知识点, [composer 的自定义安装器](<https://getcomposer.org/doc/articles/custom-installers.md>) 
+这里发现一个新的知识点, [composer 的自定义安装器](<https://getcomposer.org/doc/articles/custom-installers.md>)
 
 think-installer 就是一个标准的 自定义安装器.在这个包中的ThinkExtend.php文件可以看到,当包type为think-extend才会触发一些事件,,复制config也是在这个里面完成的,所以要想自定义thinkphp的compoerr包,不妨先看看这个包里面有哪些规则,然后按照这个规则来发布一些包.发布一个think-extend可以参考我的另一篇文章
 
 [发布自定义composer包](/2019/06/03/其他/发布自定义composer包/)
 
 ---
-
-
 
 ### 遇到的问题
 
@@ -180,16 +174,13 @@ files = /etc/supervisor/.ini
 
 3. tp5.1 只能使用2.x版本, 无法使用 think-queue 3版本,安装时注意指定版本
 
-   可以使用  ``composer require topthink/think-queue ~2.0`` 
+   可以使用  ``composer require topthink/think-queue ~2.0``
 
    关于composer安装指定版本的总结,详见 [composer 包版本的一些事]([https://blog.sydy1314.com/2019/05/31/%E5%85%B6%E4%BB%96/composer%E5%8C%85%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/](https://blog.sydy1314.com/2019/05/31/其他/composer包版本的一些事/))
 
 4. 后续会补上最5.1和6.0版本,最基本的队列demo,补充queue 的migration
 
-
-
 ### 参考
 
 > [composer 仓库地址](https://packagist.org/packages/topthink/think-queue)
 > [coolseven的笔记](https://github.com/coolseven/notes/tree/master/thinkphp-queue)
-

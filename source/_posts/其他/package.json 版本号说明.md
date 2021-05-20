@@ -1,11 +1,11 @@
 ---
 title: package.json 版本号说明
-categories:
-  - 其他
 tags:
   - github
 comments: true
 abbrlink: 19017
+categories:
+  - 其他
 date: 2019-06-07 15:43:12
 ---
 
@@ -13,7 +13,7 @@ date: 2019-06-07 15:43:12
 
 # package.json 版本号说明
 
-#来源/采集 #Webpack
+# 来源/采集 #Webpack
 
 > [package.json 版本号说明](https://blog.csdn.net/fengyjch/article/details/81028524)  
 
@@ -99,4 +99,3 @@ major.minor.patch
 ```json
 "example": "1.1.1-1.2.9 || >=3.5.0 || ^0.1.2" // 版本要求满足其一即可
 ```
-

@@ -1,13 +1,13 @@
 ---
 title: thinkphp5使用笔记
-categories:
-  - 服务端
-  - php
 tags:
   - thinkphp
   - note
 comments: true
 abbrlink: 22516
+categories:
+  - 服务端
+  - php
 date: 2019-06-03 03:23:57
 ---
 
@@ -56,11 +56,8 @@ Tp5开启了debug之后,执行下载文件的时候,浏览器会获取不到文�
 
 新版本未进行测试,如有遇到可以测试一下
 
-
-
-
-
 ## tp5使用$_GET获取不到数据？
+
 如果你的请求的地址参数是以pathinfo形式，这样参数是无法用$_GET去获取的，同样也不能使用系统中的get方法。
 
 ~~~php
@@ -95,7 +92,6 @@ public function user() {
 
 ```
 
-
 这样普通传参方式，get方法和$_GET就能正常获取。我们再看看混合式地址方式_
 
 ```php
@@ -113,36 +109,28 @@ public function user() {
 混合式地址比较乱，但在ajax请求时生成地址很有可能是这种混合式。
 上面的三种请求参数地址在我们日常开发中比较常见，那么能够正常获取的请用系统的param方式获取，这个是最兼容的获取方式。
 
-
-
 ## tp5模型belongsTo和hasOne的使用场景
-在使用tp5模型的ORM的时候出现belongsTo和hasOne都有表示一对一的关系，但是二者并不相同。以下举例说明两者的区别： 
-首先有user表 字段 id name password字段 
+
+在使用tp5模型的ORM的时候出现belongsTo和hasOne都有表示一对一的关系，但是二者并不相同。以下举例说明两者的区别：
+首先有user表 字段 id name password字段
 然后有user_address表 id user_id city字段
 在User模型中关联user_address表的时候使用hasOne，因为在user表中没有关联两个表的外键
 在UserAddress模型中关联user表的时候使用belongsTo，因为在user_address表中有关联两个表的外键user_id
 
 挺好理解的
-当某表的主键是是要关联的表的外键的时候用hasOne 
+当某表的主键是是要关联的表的外键的时候用hasOne
 当某表有要关联的主表的外键的时候时候用belongsTo
 相当于我是主体,我用hasOne(我有)
 我是附属 ,用belongsTo(附属于)
 
-
-
-
-
 ## Tp5的使用关联统计的时候无法使用field
+
 具体在抽奖项目用到
 的确是这样的, 具体可以看sql语句
-
-
 
 ## tp5 引入自定义类
 
 thinkphp5 的自定义类写在 项目目录下的extend目录,这个目录可以被框架自动加载
-
-
 
 ## tp5模型中的base()方法
 
@@ -180,10 +168,6 @@ public function db($useBaseQuery = true, $buildNewQuery = true)
 
 这里很可能会犯一个小错误,莫名其妙那种,如果再base里面写了条件,在使用模型查询的时候也写了重复的条件,那么就会报语法错误,会报构建sql语句错误的错
 
-
-
-##  TP5的软删除
+## TP5的软删除
 
 TP5也有自己的软删除,而且软删除的字段用的是int类型
-
-

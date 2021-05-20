@@ -1,11 +1,11 @@
 ---
 title: npm私有仓库搭建
-categories:
-  - 其他
 tags:
   - composer
 comments: true
 abbrlink: 56354
+categories:
+  - 其他
 date: 2019-05-31 03:19:12
 ---
 
@@ -15,7 +15,7 @@ date: 2019-05-31 03:19:12
 
 >调研方案如下
 >
->1. sinopia](https://github.com/rlidwka/sinopia)    官方已经很多年不再更新,不推荐使用
+>1. sinopia](<https://github.com/rlidwka/sinopia>)    官方已经很多年不再更新,不推荐使用
 >2. [verdaccio](https://github.com/verdaccio/verdaccio)  适合小团队,使用方法和官方仓库一样,纯前端团队比较适合安装这个,也不依赖于其他环境
 >3. [nexus](https://www.sonatype.com/) 功能较多,和npm官方发布方式有些不一样,直接上传,只需要配置相应的东西即可,发布包可以直接在web界面操作
 >4. [cnpm](https://github.com/cnpm/cnpmjs.org)  适合企业,,使用方法和官方仓库一样
@@ -24,8 +24,6 @@ date: 2019-05-31 03:19:12
 ***
 
 这边我尝试使用了verdaccio和nexus,并做了一些笔记
-
-
 
 ### verdaccio 笔记
 
@@ -36,8 +34,6 @@ date: 2019-05-31 03:19:12
 发布包的时候可能会发现没有权限(windows环境),暂时先提升了权限后去发布包,提升后,没有任何问题了
 
 这里附上verdaccio的[文档地址](https://verdaccio.org/docs/zh-CN/installation)
-
-
 
 #### 配置文件
 
@@ -62,18 +58,13 @@ youngshen:$6gXBVzCICWB2:autocreated 2018-11-20T00:38:05.745Z
 
 verdaccio的代理机制,如果在本地包没有找到对应的包,那么会从配置的代理地址下载对应的包.具体的配置可以参考官方文档的[连接远程注册表一章](https://verdaccio.org/docs/zh-CN/linking-remote-registry)
 
-
-
-#### 发布已经安装在项目中的包,
+#### 发布已经安装在项目中的包
 
 复制包文件夹(为了不影响项目)-->然后修改package.json文件,先把上面一些关于本次安装的信息删除掉,如果有相应的想改的配置可以做相应的修改-->在修改过的包文件下执行npm publish (<!--前提是已经使用npm adduser登录了相应的仓库-->)
 
 ***note:在使用某些npm命令的时候切记要注意当前的默认仓库配置是什么,否则就会发生用户名和密码不匹配导致的,权限认证错误,而无法发布***
 
 ***
-
-
-
 
 ### nexus3搭建私有仓库
 
@@ -88,8 +79,6 @@ admin admin123 账号登录,
 #### 第一步
 
 ![第一步](http://blog.oss.sydy1314.com/2019/0607/npm私有仓库搭建-1.jpg)
-
-
 
 首先进入此页面,创建一个新的blob stores
 
@@ -106,8 +95,6 @@ admin admin123 账号登录,
 proxy 是配置代理仓库, hosted是配置本地仓库,group是仓库组,可以组合其他两种的npm仓库
 
 这边的策略是, proxy 代理官方的仓库 hosted管理团队内部的仓库, group就是前面两个仓库的组合,我们团队配置的其实就是group这个仓库的对外地址.
-
-
 
 安装仓库全部傻瓜安装,配置全部默认,在storage选项选择之前创建的blob stores ==> npm-blob即可
 
@@ -128,8 +115,6 @@ proxy 是配置代理仓库, hosted是配置本地仓库,group是仓库组,可�
 上图红色箭头所示,就是开启匿名访问的开关,
 
 关于安全性这块,具体还没有研究,拥有的功能也比较强大,具体参考[官方文档](https://help.sonatype.com/repomanager3)进行学习研究.
-
-
 
 ## 补充
 
@@ -156,7 +141,7 @@ npm ERR! Registry returned 400 for PUT on https://registry.npmjs.org/-/user/org.
 
 报错提示为That email has already been registered. 提示说已经注册过了账号,
 
-这边的确我已经注册过了 https://registry.npmjs.org 网站的账号,但是现在怎么才能登录呢,
+这边的确我已经注册过了 <https://registry.npmjs.org> 网站的账号,但是现在怎么才能登录呢,
 
 *但是为什么没有成功登录呢*?
 
@@ -201,10 +186,6 @@ localhost:4873是verdaccio构建的npm仓库地址,我执行了adduser之后就�
 │ email           │ 820355121@qq.com (verified) │
 ...
 
-
-
-
-
 ### 设置 npm的python环境变量
 
 一个机子上全局python环境变量是python3了,但是npm 要依赖 python2.7怎么办呢?
@@ -216,10 +197,3 @@ npm config set python xxxx路径
 # windows 最好还是老老实实 配置具体路径,因为我使用这个命令并没有效果,哪怕我安装了which命令,但是解析出的路径无法被正确识别
 
 ```
-
-
-
-
-
-
-
