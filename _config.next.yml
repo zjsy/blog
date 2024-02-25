@@ -262,7 +262,7 @@ reward_settings:
 
 reward:
   #wechatpay: /images/wechatpay.png
-  alipay: http://blog.oss.sydy1314.com/qrcode/alipay.png
+  alipay: http://blog.sydy1314.com/qrcode/alipay.png
   #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
 

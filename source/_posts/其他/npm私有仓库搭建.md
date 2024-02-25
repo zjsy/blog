@@ -78,11 +78,11 @@ admin admin123 账号登录,
 
 #### 第一步
 
-![第一步](http://blog.oss.sydy1314.com/2019/0607/npm私有仓库搭建-1.jpg)
+![第一步](http://resource.sydy1314.com/2019/0607/npm私有仓库搭建-1.jpg)
 
 首先进入此页面,创建一个新的blob stores
 
-![创建blob stroes](http://blog.oss.sydy1314.com/2019/0607/npm私有仓库搭建-2.jpg)
+![创建blob stroes](http://resource.sydy1314.com/2019/0607/npm私有仓库搭建-2.jpg)
 
 为什么要新建一个仓库卷来存放,具体的好处我也不知道,但是建议这样吧,可能看起来比较爽,或者不同类型的仓库的blob存贮文件是分开存储,如果文件损坏也不至于全部都损坏
 
@@ -90,7 +90,7 @@ admin admin123 账号登录,
 
 进入Repositories菜单,就可以建立相应的仓库了.点击创建仓库,然后就可以看到了关于npm的仓库只有三种如下图
 
-![创建时可选的仓库类型](http://blog.oss.sydy1314.com/2019/0607/npm私有仓库搭建-3.jpg)
+![创建时可选的仓库类型](http://resource.sydy1314.com/2019/0607/npm私有仓库搭建-3.jpg)
 
 proxy 是配置代理仓库, hosted是配置本地仓库,group是仓库组,可以组合其他两种的npm仓库
 
@@ -98,11 +98,11 @@ proxy 是配置代理仓库, hosted是配置本地仓库,group是仓库组,可�
 
 安装仓库全部傻瓜安装,配置全部默认,在storage选项选择之前创建的blob stores ==> npm-blob即可
 
-![创建时可选的仓库类型](http://blog.oss.sydy1314.com/2019/0607/npm私有仓库搭建-4.jpg)
+![创建时可选的仓库类型](http://resource.sydy1314.com/2019/0607/npm私有仓库搭建-4.jpg)
 
 第三步
 
-![创建时可选的仓库类型](http://blog.oss.sydy1314.com/2019/0607/npm私有仓库搭建-5.jpg)
+![创建时可选的仓库类型](http://resource.sydy1314.com/2019/0607/npm私有仓库搭建-5.jpg)
 
 切换到如图所示位置就可以看到前面创建的三个仓库,然后找到需要配置的npm仓库,点击copy查看仓库地址,并把本机的npm仓库设置为刚刚拷贝的地址即可
 
@@ -110,7 +110,7 @@ proxy 是配置代理仓库, hosted是配置本地仓库,group是仓库组,可�
 
 关于nexus的安装配置,如果全部按默认的不改什么配置的话,是没有任何问题的.之前由于java团队配置了一个不允许匿名访问,所以在执行安装的时候,每次都会报401错误,没有权限,经过排查,最终知道了在web面板中可以配置相应的权限,如下
 
-![创建时可选的仓库类型](http://blog.oss.sydy1314.com/2019/0607/npm私有仓库搭建-6.jpg)
+![创建时可选的仓库类型](http://resource.sydy1314.com/2019/0607/npm私有仓库搭建-6.jpg)
 
 上图红色箭头所示,就是开启匿名访问的开关,
 

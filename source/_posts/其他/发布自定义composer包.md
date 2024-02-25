@@ -147,7 +147,7 @@ date: 2019-06-03 00:19:12
 
 3. 提交代码到github,第一次需要在官网手动验证仓库地址,
 
-   ![asd](http://blog.oss.sydy1314.com/2019/0603/%E5%8F%91%E5%B8%83%E8%87%AA%E5%AE%9A%E4%B9%89composer%E5%8C%85-1.jpg)
+   ![asd](http://resource.sydy1314.com/2019/0603/%E5%8F%91%E5%B8%83%E8%87%AA%E5%AE%9A%E4%B9%89composer%E5%8C%85-1.jpg)
 
    傻瓜操作完之后便会跳转到已经创建的包的主页
 
@@ -180,7 +180,7 @@ date: 2019-06-03 00:19:12
 
    有这么一段提交到了packagist.org之后,其实打开谷歌翻译,如果有翻译的话,自己就能看到怎么配置github的webhook,当自己的composer包,没有自动更新的时候,会在自己的包的主页显示
 
-   ![img](http://blog.oss.sydy1314.com/2019/0603/%E5%8F%91%E5%B8%83%E8%87%AA%E5%AE%9A%E4%B9%89composer%E5%8C%85-2.jpg)
+   ![img](http://resource.sydy1314.com/2019/0603/%E5%8F%91%E5%B8%83%E8%87%AA%E5%AE%9A%E4%B9%89composer%E5%8C%85-2.jpg)
 
    然后一步一步去跟着教程,直接就可以配置好了,自动更新的hook了.
 
